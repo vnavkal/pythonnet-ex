@@ -7,7 +7,7 @@ COPY *.csproj ./
 RUN dotnet restore
 
 # Copy the source file and build
-COPY SomeClass.cs ./
+COPY *.cs ./
 RUN dotnet publish -c Release -o out
 
 FROM python:3.8.7-buster AS pythonnet
@@ -22,6 +22,7 @@ RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E03280
   && echo "deb http://download.mono-project.com/repo/debian stretch/snapshots/$MONO_VERSION main" > /etc/apt/sources.list.d/mono-official.list \
   && apt-get update \
   && apt-get install -y clang \
+  && apt-get install -y gdb \
   && apt-get install -y mono-devel=${MONO_VERSION}\* \
   && rm -rf /var/lib/apt/lists/* /tmp/*
 
@@ -46,4 +47,4 @@ RUN dotnet_sdk_version=3.1.301 \
 COPY --from=build-env /app/out .
 
 COPY main.py .
-CMD MONO_LOG_LEVEL=debug python main.py
+CMD ["/bin/sh", "-c", "python main.py"]
