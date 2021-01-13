@@ -9,7 +9,7 @@ namespace ExampleProject
         public bool Method()
         {
             /* step 1 */
-            Console.WriteLine("Hello!");
+            Console.WriteLine("Inside SomeClass.Method");
 
             /* step 2 */
             BlobContainerClient container = new BlobContainerClient("****connectionstring****", "code");

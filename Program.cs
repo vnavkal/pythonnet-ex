@@ -1,11 +1,13 @@
+using System;
 using ExampleProject;
 
 namespace ExampleProject
 {
     class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
+            Console.WriteLine("Inside Main");
             SomeClass c = new SomeClass();
             c.Method();
         }
