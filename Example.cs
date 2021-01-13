@@ -2,11 +2,11 @@ using Azure.Storage.Blobs; //used for step 2
 using Newtonsoft.Json.Linq;
 using System;
 
-namespace LinuxEnvironmentTest
+namespace ExampleProject
 {
-    public class TestClass
+    public class Program
     {
-        public bool Method()
+        static void Main(string[] args)
         {
             /* step 1 */
             Console.WriteLine(".Net standard 2.0");
@@ -21,7 +21,6 @@ namespace LinuxEnvironmentTest
             /* step 2 */
             BlobContainerClient container = new BlobContainerClient("****connectionstring****", "code");
             Console.WriteLine(container.Exists());
-            return true;
         }
     }
 }

@@ -33,9 +33,9 @@ RUN dotnet new console -n ExampleProject \
     && dotnet add package Azure.Storage.Blobs \
     && dotnet add package Newtonsoft.Json
 
-COPY Example.cs ExampleProject/
+COPY Example.cs ExampleProject/Program.cs
 
 RUN cd ExampleProject/ \
-    && dotnet build
+    && dotnet publish -c Release
 
-CMD mono ExampleProject/Example.exe
+CMD mono ExampleProject/bin/Release/netcoreapp3.1/ExampleProject.dll
