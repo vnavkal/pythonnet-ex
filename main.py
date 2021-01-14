@@ -1,10 +1,14 @@
 import clr
-import os
+import pathlib
 import sys
 
 print('calling clr.AddReference')
 sys.stdout.flush()
 clr.AddReference('ExampleProject')
+
+print('appending to sys.path')
+sys.stdout.flush()
+sys.path.append(str(pathlib.Path(__file__).parent.absolute()))
 
 print('importing .NET class')
 sys.stdout.flush()
