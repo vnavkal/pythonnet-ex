@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-docker build -t vnavkal/pythonnet-ex .
+docker build -t pythonnet-ex .
